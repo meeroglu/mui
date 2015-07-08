@@ -28,13 +28,14 @@ pushRepo()
 git push $1 $2
 }
 
-if[git diff --name-only HEAD -eq ""] then;
-{
-repoSync first master
-repoSync second master
-pushRepo first master
-pushRepo second master
-}
+asd="git diff --name-only HEAD"
+if asd  -eq "" 
+then
+#repoSync first master
+#repoSync second master
+#pushRepo first master
+#pushRepo second master
+echo merhaba 
 fi
 #freshCopy git@github.com:muicss/mui.git
 #remoteAdd first git@github.com:meeroglu/first.git
