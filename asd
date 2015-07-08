@@ -97,3 +97,4 @@ melikeeeeeeeeeeeeeeeee
 hhiiiii
 yeter
 deneme 1 2 3
+deneme 3 2 1
