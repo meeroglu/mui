@@ -54,6 +54,8 @@ pushRepo first master
      echo "second repo sync ediliyor"
 pushRepo second master
      echo "second repo sync edildi"			
+else
+     echo "no changed file in repos"
 fi
 
 #freshCopy git@github.com:muicss/mui.git
