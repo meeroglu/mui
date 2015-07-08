@@ -27,11 +27,16 @@ git push $1 $2
 
 if ! git diff-index --quiet HEAD --; then
  echo "Deigisiklik bulunan dosyalar:"
-
+    git diff HEAD~~1 --name-only
+ echo "first repositorydeki deigiklikler aliniyor"
    repoSync first master
+ echo "second repositorydeki degisiklikler aliniyor"
    repoSync second master
+ echo "first repo sync ediliyor"
    pushRepo first master
+ echo "second repo sync ediliyor"
    pushRepo second master
+ echo "synchronization tamamlandi"
 else
    echo "there is no changed file"
 
