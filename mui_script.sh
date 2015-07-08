@@ -30,6 +30,9 @@ if ! git diff-index --quiet HEAD --; then
    repoSync second master
    pushRepo first master
    pushRepo second master
+else
+   echo "there is no changed file"
+
 fi
 
 exit
