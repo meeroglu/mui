@@ -16,5 +16,6 @@ Package.onUse(function (api) {
     'dist/css/mui.css',
     'dist/js/mui.js'
   ], 'client');
+  bu değişiklik secon repoda yapıldı.
 });
 eroğlu
