@@ -1,5 +1,5 @@
 #!/bin/sh
-echo this is freshcopy function
+echo this is begining of script 
 freshCopy()
 {
   git clone $1
@@ -70,4 +70,4 @@ fi
 #repoSync second master
 #pushRepo first master
 #pushRepo second master
-#exit
+exit
