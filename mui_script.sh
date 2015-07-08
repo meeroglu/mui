@@ -28,12 +28,12 @@ pushRepo()
 git push $1 $2
 }
 
-if[git HEAD~~1 --name -only] then;
+if[git diff --name-only HEAD -eq ""] then;
 {
-
-}
-else 
-{
+repoSync first master
+repoSync second master
+pushRepo first master
+pushRepo second master
 }
 fi
 #freshCopy git@github.com:muicss/mui.git
