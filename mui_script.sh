@@ -7,6 +7,7 @@ freshCopy()
   cd $reponame 
   git init
   git add .
+
   
 }
 
@@ -28,13 +29,9 @@ pushRepo()
 git push $1 $2
 }
 
-asd="git diff --name-only HEAD"
-if asd  -eq "" 
+asd=git diff --name-only HEAD
+if $asd  -eq "" 
 then
-#repoSync first master
-#repoSync second master
-#pushRepo first master
-#pushRepo second master
 echo merhaba 
 fi
 #freshCopy git@github.com:muicss/mui.git
@@ -46,7 +43,7 @@ fi
 #pushRepo second master
 
 #repoSync first master
-repoSync second master
+#repoSync second master
 #pushRepo first master
-pushRepo second master
+#pushRepo second master
 #exit
