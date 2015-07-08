@@ -42,8 +42,8 @@ git push $1 $2
 
 #fi
 
-if ! git diff --quite HEAD --;
-then
+if ! git --git-dir="/dir/.git" diff --quiet; then
+
      echo "repositorylerden birinde degisiklik var "
      echo "bu degisiklikler aliniyor"
 repoSync first master
