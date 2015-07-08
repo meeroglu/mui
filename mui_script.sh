@@ -26,6 +26,8 @@ git push $1 $2
 }
 
 if ! git diff-index --quiet HEAD --; then
+ echo "Deigisiklik bulunan dosyalar:"
+
    repoSync first master
    repoSync second master
    pushRepo first master
