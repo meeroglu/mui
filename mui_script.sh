@@ -25,24 +25,37 @@ pushRepo()
 git push $1 $2
 }
 
-if ! git diff-index --quiet HEAD --; then
- echo "Deigisiklik bulunan dosyalar:"
-    git diff HEAD~~1 --name-only
- echo "first repositorydeki deigiklikler aliniyor"
-   repoSync first master
- echo "second repositorydeki degisiklikler aliniyor"
-   repoSync second master
- echo "first repo sync ediliyor"
-   pushRepo first master
- echo "second repo sync ediliyor"
-   pushRepo second master
- echo "synchronization tamamlandi"
-else
-   echo "there is no changed file"
+#if ! git diff-index --quiet HEAD --; then
+# echo "Degisiklik bulunan dosyalar:"
+#    git diff HEAD~~1 --name-only
+# echo "first repositorydeki deigiklikler aliniyor"
+#   repoSync first master
+# echo "second repositorydeki degisiklikler aliniyor"
+#   repoSync second master
+# echo "first repo sync ediliyor"
+#   pushRepo first master
+# echo "second repo sync ediliyor"
+#   pushRepo second master
+# echo "synchronization tamamlandi"
+#else
+#   echo "there is no changed file"
 
+#fi
+
+if ! git diff --quite HEAD --;
+then
+     echo "repositorylerden birinde degisiklik var "
+     echo "bu degisiklikler aliniyor"
+repoSync first master
+repoSync second master
+     echo "Degisikler alindi repolar sync ediliyor "
+pushRepo first master
+     echo "first repo sync edildi"
+     echo "second repo sync ediliyor"
+pushRepo second master
+     echo "second repo sync edildi"			
 fi
 
-exit
 #freshCopy git@github.com:muicss/mui.git
 #remoteAdd first git@github.com:meeroglu/first.git
 #remoteAdd second git@github.com:meeroglu/second.git
