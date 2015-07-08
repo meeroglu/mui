@@ -1,16 +1,13 @@
 #!/bin/sh
-echo this is freshcopy func
+echo this is freshcopy function
 freshCopy()
 {
   git clone $1
   reponame=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
   cd $reponame 
   git init
-  git add .
-
-  
+  git add .  
 }
-
 repoSync()
 {
 git fetch $1 $2
@@ -23,17 +20,19 @@ remoteAdd()
 {
 git remote add $1 $2
 }
-
 pushRepo()
 {
 git push $1 $2
 }
 
-asd=git diff --name-only HEAD
-if $asd  -eq "" 
-then
-echo merhaba 
+if ! git diff-index --quiet HEAD --; then
+   repoSync first master
+   repoSync second master
+   pushRepo first master
+   pushRepo second master
 fi
+
+exit
 #freshCopy git@github.com:muicss/mui.git
 #remoteAdd first git@github.com:meeroglu/first.git
 #remoteAdd second git@github.com:meeroglu/second.git
