@@ -15,6 +15,9 @@ repoSync()
 {
 git fetch $1 $2
 git merge $1/$2
+git add .
+git commit -m "updated"
+git checkout master
 }
 remoteAdd()
 {
@@ -38,7 +41,7 @@ git push $1 $2
 #pushRepo second master
 
 #repoSync first master
-#repoSync second master
+repoSync second master
 #pushRepo first master
 pushRepo second master
 #exit
