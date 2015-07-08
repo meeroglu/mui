@@ -1,5 +1,4 @@
 #!/bin/sh
-
 echo this is freshcopy func
 freshCopy()
 {
@@ -29,9 +28,14 @@ pushRepo()
 git push $1 $2
 }
 
+if[git HEAD~~1 --name -only] then;
+{
 
-
-
+}
+else 
+{
+}
+fi
 #freshCopy git@github.com:muicss/mui.git
 #remoteAdd first git@github.com:meeroglu/first.git
 #remoteAdd second git@github.com:meeroglu/second.git
