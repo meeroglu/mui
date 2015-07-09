@@ -41,8 +41,8 @@ git push $1 $2
 #   echo "there is no changed file"
 
 #fi
-
-if ! git --git-dir="/dir/.git" diff --quiet; then
+zero="0"
+if git log --oneline master..origin/master ; then
 
      echo "Degisiklik bulunan dosyalar:"
       git diff HEAD~~1 --name-only
