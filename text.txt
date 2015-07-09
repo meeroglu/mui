@@ -12,3 +12,4 @@ index ca0f321..d266aba 100755
   echo "Degisiklik bulunan dosyalar:"
      git diff HEAD~~1 --name-only
   echo "first repositorydeki deigiklikler aliniyor"
+yeminlen bunaldım
