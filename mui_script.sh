@@ -42,7 +42,10 @@ git push $1 $2
 
 #fi
 zero="0"
-if git log --oneline master..first/master ; then
+empty=""
+name= git diff HEAD~~1 --name-only
+if !  $name == $empty ; then
+
 
      echo "Degisiklik bulunan dosyalar:"
       git diff HEAD~~1 --name-only
