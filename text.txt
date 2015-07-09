@@ -13,3 +13,4 @@ index ca0f321..d266aba 100755
      git diff HEAD~~1 --name-only
   echo "first repositorydeki deigiklikler aliniyor"
 yeminlen bunaldım
+yiterrrrrrrrrrrr
