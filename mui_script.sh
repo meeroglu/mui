@@ -25,7 +25,10 @@ pushRepo()
 git push $1 $2
 }
 
-if ! git diff-index --quiet ; then
+touch ~/diff.txt
+git diff >> ~/diff.txt
+if ! -s "$diff"  ; then
+pwd
  echo "Degisiklik bulunan dosyalar:"
     git diff HEAD~~1 --name-only
  echo "first repositorydeki deigiklikler aliniyor"
