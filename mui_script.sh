@@ -26,8 +26,11 @@ git push $1 $2
 }
 
 touch ~/diff.txt
-git diff >> ~/diff.txt
-if ! -s "$diff"  ; then
+file = ~/diff.txt
+git diff origin/master...first/master >> ~/diff.txt 
+
+
+	if ! -s $file   ; then
 pwd
  echo "Degisiklik bulunan dosyalar:"
     git diff HEAD~~1 --name-only
@@ -44,7 +47,6 @@ else
    echo "there is no changed file"
 
 fi
-
 
 
 
@@ -88,4 +90,4 @@ fi
 #repoSync second master
 #pushRepo first master
 #pushRepo second master
-exit
+
