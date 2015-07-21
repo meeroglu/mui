@@ -25,29 +25,7 @@ pushRepo()
 git push $1 $2
 }
 
-export GIT_WORK_TREE=/home/meroglu/mui
-git checkout -f
 
-cd /home/meroglu/mui
-unset GIT_DIR
-git pull
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#touch ~/diff.txt
 #chmod 755  ~/diff.txt
 #git fetch first master
 #git diff --name-only HEAD~0 HEAD~1 >> ~/diff.txt 
@@ -108,4 +86,3 @@ fi
 #repoSync second master
 #pushRepo first master
 #pushRepo second master
-
