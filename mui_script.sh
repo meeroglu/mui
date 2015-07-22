@@ -25,8 +25,6 @@ pushRepo()
 git push $1 $2
 }
 
-<<<<<<< HEAD
-
 #chmod 755  ~/diff.txt
 #git fetch first master
 #git diff --name-only HEAD~0 HEAD~1 >> ~/diff.txt 
@@ -53,7 +51,6 @@ git push $1 $2
 #   echo "there is no changed files"
 fi
 
-=======
 touch ~/diff.txt
 chmod 755  ~/diff.txt
 git fetch first
@@ -77,15 +74,6 @@ else
 
 fi
 
-
-
-
-
-
-
-
-
->>>>>>> second/master
 #zero="0"
 #empty=""
 #name= git diff 
@@ -120,7 +108,3 @@ fi
 #repoSync second master
 #pushRepo first master
 #pushRepo second master
-<<<<<<< HEAD
-=======
-
->>>>>>> second/master
