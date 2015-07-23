@@ -24,3 +24,4 @@ yiterrrrrrrrrrrr
 merhaba bu denemede refs/heads/master denemesi yapıyorum
 
 netasta yaplan deigisiklik
+11:32 netata yaplan deiiklik
