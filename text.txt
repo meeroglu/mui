@@ -14,3 +14,4 @@ index ca0f321..d266aba 100755
   echo "first repositorydeki deigiklikler aliniyor"
 
 bu yaziyi genbandan okuyorsan olmus demektir.
+merhaba saat 11:55
