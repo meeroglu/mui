@@ -12,16 +12,4 @@ index ca0f321..d266aba 100755
   echo "Degisiklik bulunan dosyalar:"
      git diff HEAD~~1 --name-only
   echo "first repositorydeki deigiklikler aliniyor"
-yeminlen bunaldım
-yiterrrrrrrrrrrr
 
-
-
-
-
-
-
-merhaba bu denemede refs/heads/master denemesi yapıyorum
-
-netasta yaplan deigisiklik
-11:32 netata yaplan deiiklik
