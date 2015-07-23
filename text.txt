@@ -6,7 +6,7 @@ index ca0f321..d266aba 100755
 @@ -25,7 +25,7 @@ pushRepo()
  git push $1 $2
  }
- 
+ sdfksajmngfliksajfg
 -if ! git diff-index --quiet ; then
 +if ! git diff-index --quiet HEAD--; then
   echo "Degisiklik bulunan dosyalar:"
