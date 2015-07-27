@@ -1,12 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$1" == "push" ]; then
+if [ "$1" == "push" ];
+then
         echo "Simdi yakaladik seni"
         `git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git`
         `git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git`
         `git push netas`
         `git push genband`
 else
-        `git $@`
-fi
+	result=$@
+                for i in $(seq 1 $#)
+                do
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        if [ $word_count -gt 1 ]
+                        then
+		                var=${!i}
+                		result=$(echo $@ | sed "s/$var/\"$var\"/g" )
+                        fi
+                done
 
+        git $result;
+fi
