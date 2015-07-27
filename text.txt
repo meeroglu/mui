@@ -1,28 +1,11 @@
-git diff
-diff --git a/mui_script.sh b/mui_script.sh
-index ca0f321..d266aba 100755
---- a/mui_script.sh
-+++ b/mui_script.sh
-@@ -25,7 +25,7 @@ pushRepo()
- git push $1 $2
- }
- sdfksajmngfliksajfg
--if ! git diff-index --quiet ; then
-+if ! git diff-index --quiet HEAD--; then
-  echo "Degisiklik bulunan dosyalar:"
-     git diff HEAD~~1 --name-only
-  echo "first repositorydeki deigiklikler aliniyor"
-
-bu yaziyi genbandan okuyorsan olmus demektir.
-merhaba saat 11:55
-saat 12:00
-saat 12:03
-saat 1:11
-saat 1:14
-saat 1:23
-dasadasngliaknfglkanfdglkjsdfgksdda:wq
-eneme eee
-yeni bir seylerszzz
-yeni bir seylerszzz
-yeni bir seylerszzz
-deneme ss
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
+bu bir denemedir
