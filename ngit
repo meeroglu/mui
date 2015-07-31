@@ -1,5 +1,13 @@
 #!/bin/bash
 
+############################################################################
+#####	File		: ngit						####
+####	Description	: The intent is to enhance git capabilities	####
+#####	Author		: Melike Eroglu <meroglu@netas.com.tr>		####
+#####	Co-Author	: Can Okcelik   <cokcelik@netas.com.tr>		####
+#####	Creation Date	: 31/07/2015					####
+############################################################################
+
 if [ "$1" = "pushall" ];
 then
 #	git remote add asd ssh://git@zistvy90:7999/~cokcelik/melike.git 
@@ -39,20 +47,6 @@ then
         fi
 
 
-elif [ "$1" = "test" ];
-then
-	echo tamamdir
 else
-	result=$@
-                for i in $(seq 1 $#)
-                do
-                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
-                        if [ $word_count -gt 1 ]
-                        then
-		                var=${!i}
-				var=$(echo ${!i} | sed "s/\s/\_/g")
-                		result=$(echo $@ | sed "s/${!i}/\"$var\"/g" )
-                        fi
-                done
-        /usr/bin/git $result
+	echo "This file is used for multi-site push operation. Please do not use this file out of its bounds."
 fi

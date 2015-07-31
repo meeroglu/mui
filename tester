@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo "bu bir denemedir" >> text.txt
-./git add .
-./git commit -m "test commiti"
-./git pushall master
+git add .
+git commit -m "test commiti"
+./ngit pushall master
 
