@@ -8,19 +8,18 @@ then
  
 	git push nsetas  $2
 	netas_commit_id=$( git log | head -1 | sed s/'commit '// )
-	echo $netas_commit_id
-	if [[ $? -ne 0 ]]; then
-	echo "==> Netas is not available <==";
-	git revert --no-edit $netas_commit_id
 	
-	if [[ $? -ne 0 ]]
-        then
-        	echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
-        else
-                echo "Last commit has been reverted from Netas site."
-        fi
+	if [[ $? -ne 0 ]]; then
+		echo "==> Netas is not available <==";
+	
+		if [[ $? -ne 0 ]]
+        	then
+        		echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
+        	else
+                	echo "Last commit has been reverted from Netas site."
+        	fi
 
-	exit;	
+		exit;	
 	else
 
 		echo ------------okey nop------------------
