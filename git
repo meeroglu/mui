@@ -19,10 +19,10 @@ then
 		echo ------------okey nop------------------
 	fi
 
-         git push gdenband $2
+         git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
-		git revert --no-edit		
+		git revert --no-edit $netas_commit_id		
 		if [[ $? -ne 0 ]]
 		then
 			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
