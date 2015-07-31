@@ -1,13 +1,43 @@
 #!/bin/bash
 
-if [ "$1" = "push" ];
+if [ "$1" = "pushall" ];
 then
-        echo "Simdi yakaladik seni"
-        #git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
-        #git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
+#	git remote add asd ssh://git@zistvy90:7999/~cokcelik/melike.git 
+#	git remote add bsd ssh://git@zistvy90:7999/~cokcelik/melike.git
         git config --global push.default matching
-	git push netas
-        git push genband
+ 
+	git push netas  $2
+	netas_commit_id=$( git log | head -1 | sed s/'commit '// )
+	echo $netas_commit_id
+	if [[ $? -ne 0 ]]; then
+	echo "==> Netas is not available <==";
+	git revert $netas_commit_id
+
+	exit;	
+	else
+
+		echo ------------okey nop------------------
+	fi
+
+         git push genband $2
+        if [[ $? -ne 0 ]]; then
+                echo "==> Genband is not available <==";
+		git revert $netas_commit_id
+		
+		if [[ $? -ne 0 ]]
+		then
+			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
+		else
+			echo "Last commit has been reverted from Netas site."
+		fi
+        else
+              echo ---------------------okey nop-----------------
+        fi
+
+
+elif [ "$1" = "test" ];
+then
+	echo tamamdir
 else
 	result=$@
                 for i in $(seq 1 $#)
@@ -20,6 +50,6 @@ else
                 		result=$(echo $@ | sed "s/${!i}/\"$var\"/g" )
                         fi
                 done
-
-        git $result;
+	echo $result
+        /usr/bin/git $result
 fi

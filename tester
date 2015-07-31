@@ -3,5 +3,5 @@
 echo "bu bir denemedir" >> text.txt
 ./git add .
 ./git commit -m "test commiti"
-./git push
+./git pushall master
 

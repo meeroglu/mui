@@ -3,4 +3,6 @@
 git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
 git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
 
-echo "[alias] pushall = !git push genband master && git push netas master" >> .git/config
+#echo "[alias] pushall = !git push genband master && git push netas master" >> .git/config
+
+echo "Netas and Genband sites were added.\n"
