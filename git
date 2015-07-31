@@ -22,7 +22,7 @@ then
          git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
-		git revert $netas_commit_id
+		git revert -m "revert ediliyor" $netas_commit_id
 		
 		if [[ $? -ne 0 ]]
 		then
