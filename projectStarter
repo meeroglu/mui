@@ -1,8 +1,23 @@
 #!/bin/bash
 
-git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
-git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
+echo "What is your git username?"
+read $username
+
+echo "Which protocol do you prefer(ssh/http)?:"
+read -n 4 $protocol
+
+if [[ "$protocol" = "ssh"  ]]
+then
+	git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
+	git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
+elif [[ "$protocol" = "http" ]]
+then
+	git remote add netas http://$username@zistvy90:7990/scm/~cokcelik/melike.git
+	git remote add genband http://$username@172.16.27.69:7990/scm/gmt/melike.git
+else
+	echo "We can not recognize your protocol preferences. "
+fi
 
 #echo "[alias] pushall = !git push genband master && git push netas master" >> .git/config
 
-echo "Netas and Genband sites were added.\n"
+echo "Netas and Genband sites were added."
