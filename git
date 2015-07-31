@@ -19,7 +19,7 @@ then
 		echo ------------okey nop------------------
 	fi
 
-         git push gvenband $2
+         git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		git revert $netas_commit_id
