@@ -22,7 +22,7 @@ then
          git push gdenband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
-		git revert -n		
+		git revert --no-edit		
 		if [[ $? -ne 0 ]]
 		then
 			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
