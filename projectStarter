@@ -1,23 +1,33 @@
 #!/bin/bash
 
-echo "What is your git username?"
-read $username
+firstTime=1
 
-echo "Which protocol do you prefer(ssh/http)?:"
-read -n 4 $protocol
+if [ "$firstTime" -eq 0 ]
+then
 
-if [[ "$protocol" = "ssh"  ]]
-then
-	git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
-	git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
-elif [[ "$protocol" = "http" ]]
-then
-	git remote add netas http://$username@zistvy90:7990/scm/~cokcelik/melike.git
-	git remote add genband http://$username@172.16.27.69:7990/scm/gmt/melike.git
+	echo "What is your git username?"
+	read $username
+
+	echo "Which protocol do you prefer(ssh/http)?:"
+	read $protocol
+
+	if [[ "$protocol" -eq "ssh"  ]]
+	then
+		git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
+		git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
+		echo "Netas and Genband sites were added for ssh."
+		echo $0 >> .gitignore
+	elif [[ "$protocol" -eq  "http" ]]
+	then
+		git remote add netas http://$username@zistvy90:7990/scm/~cokcelik/melike.git
+		git remote add genband http://$username@172.16.27.69:7990/scm/gmt/melike.git
+		echo "Netas and Genband sites were added for http"
+		echo $0 >> .gitignore
+	else
+		echo "We can not recognize your protocol preferences. "
+	fi
+
+
 else
-	echo "We can not recognize your protocol preferences. "
+	echo "Project has already been started."
 fi
-
-#echo "[alias] pushall = !git push genband master && git push netas master" >> .git/config
-
-echo "Netas and Genband sites were added."

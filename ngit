@@ -49,12 +49,14 @@ then
         fi
 
 
-elif [ "$1" = "test" ];
+elif [ "$1" = "projectStarter" ];
 then
-	echo tamamdir
+	./projectStarter
+	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter	
 
 elif [ "$1" = "auto" ]
 then
+	# full automatic mode
 	./ngit add .
 	./ngit commit -m "auto test commiti"
 	./ngit pushall
