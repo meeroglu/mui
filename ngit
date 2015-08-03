@@ -8,7 +8,7 @@
 #####   Creation Date   : 31/07/2015                                    ####
 ############################################################################
 
-checkStarter=$( cat projectStarter | grep firstTime | sed "s/firstTime\=//g" )
+checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime\=//g" )
 if [[ "$checkStarter" = "0"  ]]
 then
 	./projectStarter
