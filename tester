@@ -3,5 +3,5 @@
 echo selam >> text.txt
 git add .
 git commit -m "test commiti"
-./ngit pushall master
+#./ngit pushall master
 
