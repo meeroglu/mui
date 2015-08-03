@@ -9,7 +9,7 @@
 ############################################################################
 
 checkStarter=$( cat projectStarter | grep firstTime | sed "s/firstTime\=//g" )
-if [[ "$checkStarter" -eq 0  ]]
+if [[ "$checkStarter" -eq "0"  ]]
 then
 	./projectStarter
 	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
