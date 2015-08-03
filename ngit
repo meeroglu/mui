@@ -13,6 +13,7 @@ then
 #	git remote add asd ssh://git@zistvy90:7999/~cokcelik/melike.git 
 #	git remote add bsd ssh://git@zistvy90:7999/~cokcelik/melike.git
         git config --global push.default matching
+	git commit --amend -m "#ngit_operation "
 	netas_commit_id=$( git log | head -1 | sed s/'commit '// ) 
 	git push netas  $2
 	
