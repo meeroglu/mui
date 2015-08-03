@@ -1,19 +1,20 @@
 #!/bin/bash
 
 ############################################################################
-#####	File		: ngit						####
-####	Description	: The intent is to enhance git capabilities	####
-#####	Author		: Melike Eroglu <meroglu@netas.com.tr>		####
-#####	Co-Author	: Can Okcelik   <cokcelik@netas.com.tr>		####
-#####	Creation Date	: 31/07/2015					####
+#####   File            : ngit                                          ####
+#####   Description     : The intent is to enhance git capabilities     ####
+#####   Author          : Melike Eroglu <meroglu@netas.com.tr>          ####
+#####   Co-Author       : Can Okcelik   <cokcelik@netas.com.tr>         ####
+#####   Creation Date   : 31/07/2015                                    ####
 ############################################################################
 
+
+export PAGER="cat"
 if [ "$1" = "pushall" ];
 then
 #	git remote add asd ssh://git@zistvy90:7999/~cokcelik/melike.git 
 #	git remote add bsd ssh://git@zistvy90:7999/~cokcelik/melike.git
         git config --global push.default matching
-	git commit --amend -m "#ngit_operation "
 	netas_commit_id=$( git log | head -1 | sed s/'commit '// ) 
 	git push netas  $2
 	
@@ -48,6 +49,35 @@ then
         fi
 
 
+elif [ "$1" = "test" ];
+then
+	echo tamamdir
+
+elif [ "$1" = "commit" ]
+then
+	result=$@
+                for i in $(seq 1 $#)
+                do
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        if [ $word_count -gt 1 ]
+                        then
+                                var=${!i}
+                                var=$(echo ${!i} | sed "s/\s/\_/g")
+                                result=$(echo $@ | sed "s/${!i}/\"$var\"_#ngit_operation/g" )
+                        fi
+                done
+	/usr/bin/git $result
 else
-	echo "This file is used for multi-site push operation. Please do not use this file out of its bounds."
+	result=$@
+                for i in $(seq 1 $#)
+                do
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        if [ $word_count -gt 1 ]
+                        then
+		                var=${!i}
+				var=$(echo ${!i} | sed "s/\s/\_/g")
+                		result=$(echo $@ | sed "s/${!i}/\"$var\"/g" )
+                        fi
+                done
+        /usr/bin/git $result
 fi
