@@ -74,7 +74,7 @@ then
                         word_count=$( echo ${!i} | tr " " "\n" | wc -l)
                         if [ $word_count -gt 0 ]
                         then
-				asd = $( echo $@ | cut -d ' ' -f 2 )
+				asd=$( echo $@ | cut -d ' ' -f 2 )
 				echo "asd: $asd"
                             if [ -z "$asd" ] 
 			    then
