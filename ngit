@@ -8,6 +8,12 @@
 #####   Creation Date   : 31/07/2015                                    ####
 ############################################################################
 
+checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime\=//g" )
+if [[ "$checkStarter" = "0"  ]]
+then
+	./projectStarter
+	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
+fi
 
 export PAGER="cat"
 if [ "$1" = "pushall" ];

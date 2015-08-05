@@ -32,4 +32,9 @@ selam
 selam
 bu degisiklik cok onemlidir
 selam
+<<<<<<< HEAD
+selam
+=======
+Yesim
+>>>>>>> origin/master
 selam
