@@ -74,7 +74,9 @@ then
                         word_count=$( echo ${!i} | tr " " "\n" | wc -l)
                         if [ $word_count -gt 0 ]
                         then
-                            if [ -z "$2"  ]
+				asd = $( echo $@ | cut -d '\s' -f2 )
+				echo "asd: $asd"
+                            if [ -z "$asd" ] 
 			    then
 				echo "Please enter commit message with parameter"
 				echo "Ex:"
