@@ -74,7 +74,7 @@ then
                         word_count=$( echo ${!i} | tr " " "\n" | wc -l)
                         if [ $word_count -gt 0 ]
                         then
-                            if [ $word_count -lt 11111111111 ]
+                            if [ $word_count -lt 1 ]
 			    then
 				echo "Please enter commit message with parameter"
 				echo "Ex:"
