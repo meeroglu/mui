@@ -79,11 +79,12 @@ then
 				echo "Please enter commit message with parameter"
 				echo "Ex:"
 				echo "		./ngit commit [options] "commit_message" " 
-			    else
+			    	
+    			    else
 				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
                                 result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
-                            fi
+                            fi	
 			fi
 			   	
                 done
