@@ -1,0 +1,3 @@
+#!/bin/bash
+
+	grep '[remote \".*\"][:space:]*url[:space:]*=[:space:]*.*$'  .git/config 
