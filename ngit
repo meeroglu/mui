@@ -74,10 +74,18 @@ then
                         word_count=$( echo ${!i} | tr " " "\n" | wc -l)
                         if [ $word_count -gt 0 ]
                         then
-                                var=${!i}
+                            if [ $word_count -lt 2 ]
+			    then
+				echo "Please enter commit message with parameter"
+				echo "Ex:"
+				echo "		./ngit commit [options] "commit_message" " 
+			    else
+				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
                                 result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
-                        fi
+                            fi
+			fi
+			   	
                 done
 	/usr/bin/git $result
 else
