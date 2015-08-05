@@ -3,5 +3,5 @@
 echo selam >> text.txt
 ngit add .
 ngit commit -m "test commiti"
-ngit push genband master
+ngit pushall
 
