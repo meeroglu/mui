@@ -71,7 +71,7 @@ then
 	result=$@
 		after_commit=$( echo $@ | cut -d " " -f $3 ) 
 		echo $after_commit
-		if [ -z "after_commit"]
+		if [[ -z "after_commit" ]]
 		then
 			echo "please enter commit parameter and message"
 		else
