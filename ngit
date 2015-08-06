@@ -40,7 +40,7 @@ then
 		echo "----- Commit has been pushed to Netas site. -----"
 	fi
 
-         git push gcenband $2
+         git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
@@ -57,7 +57,7 @@ then
 			echo "Last commit has been reverted from Netas site."
 		for var in $changes
                 do
-                cp $var /home/meroglu/deneme/melike
+                cp -u  $var /home/meroglu/deneme/melike
                 done
 		fi
         else
