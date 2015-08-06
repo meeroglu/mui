@@ -44,7 +44,7 @@ then
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
-		echo $changes
+		echo "changed files: $changes"
 
 		git revert --no-edit $netas_commit_id		
 		if [[ $? -ne 0 ]]
