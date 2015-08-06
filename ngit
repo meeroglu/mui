@@ -69,7 +69,8 @@ then
 elif [ "$1" = "commit" ]
 then
 	result=$@
-		after_commit=$( echo $@ | cut -f 2- ) 
+		after_commit= $( $@ | cut -d ' ' -f 2 ) 
+		echo $@
 		echo $after_commit
 		if [[ -z "after_commit" ]]
 		then
