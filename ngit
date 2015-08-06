@@ -70,8 +70,8 @@ elif [ "$1" = "commit" ]
 then
 	result=$@
 		after_commit= $( echo $@ | cut -d' ' -f2 ) 
-		echo $@
-		echo $after_commit
+		echo "all var: $@"
+		echo "after commit: $after_commit"
 		if [[ -z "after_commit" ]]
 		then
 			echo "please enter commit parameter and message"
