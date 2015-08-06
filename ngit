@@ -12,7 +12,7 @@ checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime
 if [[ "$checkStarter" = "0"  ]]
 then
 	./projectStarter
-	mkdir chfiles
+	mkdir /tmp/chfiles
 	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
 fi
 
