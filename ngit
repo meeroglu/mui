@@ -40,7 +40,7 @@ then
 		echo "----- Commit has been pushed to Netas site. -----"
 	fi
 
-         git push genband $2
+         git push gkjenband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		git revert --no-edit $netas_commit_id		
