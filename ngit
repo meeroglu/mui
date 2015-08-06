@@ -40,15 +40,12 @@ then
 		echo "----- Commit has been pushed to Netas site. -----"
 	fi
 
-         git push gcenband $2
+         git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
 		echo "changed files: $changes"
-		for var in $changes
-		do
-		cp $var /home/meroglu
-		done
+
 		git revert --no-edit $netas_commit_id		
 		if [[ $? -ne 0 ]]
 		then
