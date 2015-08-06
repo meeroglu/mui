@@ -40,7 +40,7 @@ then
 		echo "----- Commit has been pushed to Netas site. -----"
 	fi
 
-         git push genband $2
+         git push gcenband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
