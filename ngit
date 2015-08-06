@@ -69,13 +69,13 @@ then
 elif [ "$1" = "commit" ]
 then
 	result=$@
-		after_commit=$( echo $@ | cut -d' ' -f2 ) 
-		echo "all var: $@"
-		echo "after commit: $after_commit"
-		if [[ -z "after_commit" ]]
-		then
-			echo "please enter commit parameter and message"
-		else
+	#	after_commit=$( echo $@ | cut -d' ' -f2 ) 
+	#	echo "all var: $@"
+	#	echo "after commit: $after_commit"
+	#	if [[ -z "after_commit" ]]
+	#	then
+	#		echo "please enter commit parameter and message"
+	#	else
 		
                 	for i in $(seq 1 $#)
                 	do
@@ -89,7 +89,7 @@ then
                           fi
 			   	
                 	done
-		fi
+	#	fi
 	/usr/bin/git $result
 else
 	result=$@
