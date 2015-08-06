@@ -45,13 +45,10 @@ then
          git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
-		changes=$( git diff HEAD~~ --name-only )
-                echo "changed files: $changes"
-                
+		changes=$( git diff HEAD~~ --name-only )          
 		for var in $changes
-                do
-		
-                cp $var /tmp/chfiles
+                do		
+                cp $var /tmp/chfiles/
                 done
 		git revert --no-edit $netas_commit_id		
 		if [[ $? -ne 0 ]]
@@ -67,7 +64,6 @@ then
         else
               echo "----- Commit has been pushed to Genband site. -----"
         fi	
-
 
 elif [ "$1" = "projectStarter" ];
 then
@@ -100,7 +96,6 @@ then
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
-	
 	fi	
 	/usr/bin/git $result
 else
