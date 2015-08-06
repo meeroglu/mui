@@ -96,9 +96,9 @@ then
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
+	/usr/bin/git $result	
 	fi	
-	/usr/bin/git $result
-else
+	else
 	result=$@
                 for i in $(seq 1 $#)
                 do
