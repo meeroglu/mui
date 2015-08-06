@@ -45,7 +45,12 @@ then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
 		echo "changed files: $changes"
-
+		 changes=$( git diff HEAD~~ --name-only )
+                echo "changed files: $changes"
+                for var in $changes
+                do
+                cp $var /home/meroglu
+                done
 		git revert --no-edit $netas_commit_id		
 		if [[ $? -ne 0 ]]
 		then
