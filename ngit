@@ -57,7 +57,7 @@ then
 			echo "Last commit has been reverted from Netas site."
 		for var in $changes
                 do
-                cp $var /home/meroglu/deneme/melike
+                cp -u  $var /home/meroglu/deneme/melike
                 done
 		fi
         else
