@@ -12,10 +12,12 @@ checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime
 if [[ "$checkStarter" = "0"  ]]
 then
 	./projectStarter
+	mkdir chfiles
 	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
 fi
 
 export PAGER="cat"
+
 if [ "$1" = "pushall" ];
 then
 #	git remote add asd ssh://git@zistvy90:7999/~cokcelik/melike.git 
@@ -45,9 +47,11 @@ then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
                 echo "changed files: $changes"
-                for var in $changes
+                
+		for var in $changes
                 do
-                cp $var /home/meroglu
+		
+                cp $var /tmp/chfiles
                 done
 		git revert --no-edit $netas_commit_id		
 		if [[ $? -ne 0 ]]
@@ -57,7 +61,7 @@ then
 			echo "Last commit has been reverted from Netas site."
 		for var in $changes
                 do
-                cp /home/meroglu/$var /home/meroglu/deneme/melike
+                cp /tmp/chfiles/$var /home/meroglu/deneme/melike
                 done
 		fi
         else
@@ -78,28 +82,26 @@ then
 	./ngit pushall
 elif [ "$1" = "commit" ]
 then
-	result=$@
-	#	after_commit=$( echo $@ | cut -d' ' -f2 ) 
-	#	echo "all var: $@"
-	#	echo "after commit: $after_commit"
-	#	if [[ -z "after_commit" ]]
-	#	then
-	#		echo "please enter commit parameter and message"
-	#	else
-		
-                	for i in $(seq 1 $#)
-                	do
+	if [ -z "$2" ]
+	then
+	echo "Please use ngit commit -m "commit message" "
+	else
+	result=$@			
+			for i in $(seq 1  $#)
+                	do	
                         word_count=$( echo ${!i} | tr " " "\n" | wc -l)
-                        if [ $word_count -gt 0 ]
-                        then
+                        	if [ $word_count -gt 0 ]
+                        	then
 			
 				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
                                 result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
-                          fi
-			   	
-                	done
-	#	fi
+                        	else
+				echo "plese use  ngit commit -m "commit message " " 	
+				fi
+		        done
+	
+	fi	
 	/usr/bin/git $result
 else
 	result=$@
