@@ -44,8 +44,6 @@ then
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )
-		echo "changed files: $changes"
-		 changes=$( git diff HEAD~~ --name-only )
                 echo "changed files: $changes"
                 for var in $changes
                 do
@@ -57,10 +55,14 @@ then
 			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
 		else
 			echo "Last commit has been reverted from Netas site."
+		for var in $changes
+                do
+                cp $var /home/meroglu/deneme/melike
+                done
 		fi
         else
               echo "----- Commit has been pushed to Genband site. -----"
-        fi
+        fi	
 
 
 elif [ "$1" = "projectStarter" ];
