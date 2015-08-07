@@ -9,6 +9,4 @@ examples/assets/mui
 examples/email-inlined
 *.sublime-*
 this is comment
-
-./projectStarter
 ./projectStarter
