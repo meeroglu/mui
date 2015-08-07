@@ -1,6 +1,6 @@
 #!/bin/bash
 
-firstTime=1
+firstTime=0
 
 if [ "$firstTime" -eq 0 ]
 then
@@ -16,7 +16,7 @@ then
 		git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
 		git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
 		echo "Netas and Genband sites were added for ssh."
-#		echo $0 >> .gitignore
+		echo $0 >> .gitignore
 	elif [[ "$protocol" -eq  "http" ]]
 	then
 		git remote add netas http://$username@zistvy90:7990/scm/~cokcelik/melike.git
