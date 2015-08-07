@@ -1,10 +1,6 @@
 #!/bin/bash
 
-<<<<<<< HEAD
 firstTime=1
-=======
-firstTime=1
->>>>>>> origin/master
 
 if [ "$firstTime" -eq 0 ]
 then
