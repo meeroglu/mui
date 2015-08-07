@@ -1,0 +1,65 @@
+#!/bin/bash
+
+
+if [ "$1" = "push" ];
+then
+        echo "Simdi yakaladik seni"
+        #git remote add genband ssh://git@172.16.27.69:7999/gmt/melike.git
+        #git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
+        git config --global push.default matching
+        
+
+	git push $2 $3
+        git push rm2 $3
+
+elif [ "$1" = "remote" ]&&[ "$2" = "add" ];
+then
+git remote -v
+
+proto="$(echo $4 | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+echo $proto
+url="$(echo ${4/$proto/})"
+echo $url
+path="$(echo $url | grep @ | cut -d@ -f1)"
+x="$(echo $url | grep @ | cut -d@ -f2)"
+host="$(echo ${url/$path@/} | cut -d/ -f1)"
+echo "hostname: $host"
+user="$(echo ${x/$user@/} | cut -d/ -f2)"
+pro="$(echo ${x/$path@/}| cut -d/ -f3)"
+echo $pro
+repo="$(echo ${x/$pro@/}| cut -d/  -f4)"
+reponame="${repo%.*}"
+	echo "reponame: $repo"
+	if [ "$host" = "172.16.27.69:7999" ];
+	then
+	   newu="$proto$path@zistvy90:7990/$user/$pro"
+	   git remote add $3 $4
+	   git remote add $pro $newu
+	   git remote -v
+	elif [ "$host" = "zistvy90:7999" ];
+	then
+	   newurl="$proto$path@172.16.27.69:7999/$user/$pro"
+	   git remote add $3 $4
+	   git remote add $pro $newurl
+	   git remote -v
+	else
+	echo   $host 
+	fi
+
+else
+        result=$@
+                for i in $(seq 1 $#)
+                do
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        if [ $word_count -gt 1 ]
+                        then
+                                var=${!i}
+                                var=$(echo ${!i} | sed "s/\s/\_/g")
+                                result=$(echo $@ | sed "s/${!i}/\"$var\"/g" )
+                        fi
+                done
+
+        git $result;
+
+fi
+
