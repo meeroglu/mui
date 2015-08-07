@@ -1,6 +1,6 @@
 #!/bin/bash
 
-firstTime=0
+firstTime=1
 
 if [ "$firstTime" -eq 0 ]
 then
